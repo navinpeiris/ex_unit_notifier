@@ -15,6 +15,6 @@ defmodule ExUnitNotifier.Mixfile do
   end
 
   defp deps do
-    []
+    [{:mix_test_watch, "~> 0.2", only: :dev}]
   end
 end
