@@ -1,20 +1,70 @@
-# ExUnitNotifier
+# ExUnit Notifier
 
-**TODO: Add description**
+![screenshot](http://i.imgur.com/xywj5C1.png)
+
+Show desktop notifications for ExUnit runs. Works incredibly well together with automatic test runners such as [mix-test.watch](https://github.com/lpil/mix-test.watch). (Yes, TDD is awesome!)
+
+Currently only notifications through OS X Notification Center is supported, but support for Growl, Linux and Windows will be coming soon. Pull requests will be highly appreciated!
+
+
+## Prerequisites
+
+On OS X, this plugin depends on [terminal-notifier](https://github.com/julienXX/terminal-notifier) being installed and available through the current users' `PATH`
+
+You can install terminal notifier using **either** of the following:
+
+```sh-session
+$ brew install terminal-notifier
+$ gem install terminal-notifier
+```
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+First, add ExUnitNotifier to your `mix.exs` dependencies:
 
-  1. Add ex_unit_notifier to your list of dependencies in `mix.exs`:
+```elixir
+def deps do
+  [{:ex_unit_notifier, "~> 0.1", only: :test}]
+end
+```
 
-        def deps do
-          [{:ex_unit_notifier, "~> 0.0.1"}]
-        end
+Then, update your dependencies:
 
-  2. Ensure ex_unit_notifier is started before your application:
+```sh-session
+$ mix deps.get
+```
 
-        def application do
-          [applications: [:ex_unit_notifier]]
-        end
+## Usage
 
+Add `ExUnitNotifier` to your `ExUnit` configuration in `test/test_helper.exs` file.
+
+```elixir
+ExUnit.configure formatters: [ExUnit.CLIFormatter, ExUnitNotifier]
+ExUnit.start
+```
+
+Now run `mix test` and you'll see notifications popping up :)
+
+### License
+
+The MIT License
+
+Copyright (c) 2016-present Navin Peiris
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
