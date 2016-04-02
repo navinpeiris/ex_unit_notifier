@@ -1,5 +1,12 @@
 # ExUnit Notifier
 
+[![Build Status](https://travis-ci.org/navinpeiris/ex_unit_notifier.svg?branch=master)](https://travis-ci.org/navinpeiris/ex_unit_notifier)
+[![Hex version](https://img.shields.io/hexpm/v/ex_unit_notifier.svg "Hex version")](https://hex.pm/packages/ex_unit_notifier)
+[![Hex downloads](https://img.shields.io/hexpm/dt/ex_unit_notifier.svg "Hex downloads")](https://hex.pm/packages/ex_unit_notifier)
+[![Deps Status](https://beta.hexfaktor.org/badge/all/github/navinpeiris/ex_unit_notifier.svg)](https://beta.hexfaktor.org/github/navinpeiris/ex_unit_notifier)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+
+
 ![screenshot](http://i.imgur.com/xywj5C1.png)
 
 Show desktop notifications for ExUnit runs. Works incredibly well together with automatic test runners such as [mix-test.watch](https://github.com/lpil/mix-test.watch). (Yes, TDD is awesome!)
