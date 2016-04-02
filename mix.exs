@@ -7,13 +7,14 @@ defmodule ExUnitNotifier.Mixfile do
      description: "Desktop notifications for ExUnit",
      package: package,
      elixir: "~> 1.2",
+     elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
   end
 
   def application do
-    [applications: [:logger]]
+    [applications: []]
   end
 
   defp deps do
@@ -26,4 +27,7 @@ defmodule ExUnitNotifier.Mixfile do
      licenses: ["MIT"],
      links: %{"GitHub" => "https://github.com/navinpeiris/ex_unit_notifier"}]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
 end

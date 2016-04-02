@@ -1,2 +1,2 @@
-ExUnit.configure formatters: [ExUnitNotifier, ExUnit.CLIFormatter]
+ExUnit.configure formatters: [ExUnit.CLIFormatter, ExUnitNotifier]
 ExUnit.start
