@@ -1,0 +1,18 @@
+language: elixir
+
+elixir:
+  - 1.2.2
+
+otp_release:
+  - 18.1
+
+env: MIX_ENV=test
+
+sudo: false # faster builds
+
+notifications:
+  email: false
+
+script:
+  - mix compile --warnings-as-errors
+  - mix test
