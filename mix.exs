@@ -4,13 +4,17 @@ defmodule ExUnitNotifier.Mixfile do
   def project do
     [app: :ex_unit_notifier,
      version: "0.1.0",
-     description: "Desktop notifications for ExUnit",
+     name: "ExUnitNotifier",
+     description: "Show status notifications for ExUnit test runs",
+     source_url: "https://github.com/navinpeiris/ex_unit_notifier",
+     homepage_url: "https://github.com/navinpeiris/ex_unit_notifier",
      package: package,
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     docs: [extras: ["README.md"]]]
   end
 
   def application do
@@ -18,7 +22,10 @@ defmodule ExUnitNotifier.Mixfile do
   end
 
   defp deps do
-    [{:mix_test_watch, "~> 0.2", only: :dev}]
+    [{:earmark, "~> 0.1", only: :dev},
+     {:ex_doc, "~> 0.11", only: :dev},
+
+     {:mix_test_watch, "~> 0.2", only: :dev}]
   end
 
   defp package do
