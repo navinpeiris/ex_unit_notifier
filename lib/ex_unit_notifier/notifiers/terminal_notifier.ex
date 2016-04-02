@@ -1,4 +1,6 @@
 defmodule ExUnitNotifier.Notifiers.TerminalNotifier do
+  @moduledoc false
+
   alias ExUnitNotifier.Icon
 
   def notify(status, message) do

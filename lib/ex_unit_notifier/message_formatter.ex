@@ -1,4 +1,6 @@
 defmodule ExUnitNotifier.MessageFormatter do
+  @moduledoc false
+
   alias ExUnitNotifier.Counter
 
   def format(counter, run_us, load_us) do

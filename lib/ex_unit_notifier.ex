@@ -1,4 +1,13 @@
 defmodule ExUnitNotifier do
+  @moduledoc """
+  Shows notifications for ExUnit test runs
+
+  To enablee notifications, add `ExUnitNotifier` as a formatter in your `test_helper.exs`:
+
+      ExUnit.configure formatters: [ExUnit.CLIFormatter, ExUnitNotifier]
+
+  """
+
   use GenEvent
 
   alias ExUnitNotifier.Counter

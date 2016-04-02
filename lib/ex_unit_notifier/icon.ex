@@ -1,4 +1,6 @@
 defmodule ExUnitNotifier.Icon do
+  @moduledoc false
+
   def get_icon(:ok), do: "Success" |> get_icon_path
   def get_icon(_), do: "Failed" |> get_icon_path
 
