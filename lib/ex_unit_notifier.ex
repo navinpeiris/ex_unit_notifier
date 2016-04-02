@@ -6,7 +6,7 @@ defmodule ExUnitNotifier do
 
   @notifiers [
     ExUnitNotifier.Notifiers.TerminalNotifier,
-    ExUnitNotifier.Notifiers.NoOp
+    ExUnitNotifier.Notifiers.TerminalTitle
   ]
 
   def init(_opts), do: {:ok, %Counter{}}
