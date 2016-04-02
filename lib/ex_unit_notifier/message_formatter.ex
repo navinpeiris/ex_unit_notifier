@@ -1,8 +1,6 @@
 defmodule ExUnitNotifier.MessageFormatter do
   @moduledoc false
 
-  alias ExUnitNotifier.Counter
-
   def format(counter, run_us, load_us) do
     message = "#{counter.tests} tests, #{counter.failures} failures"
     if counter.skipped > 0 do
