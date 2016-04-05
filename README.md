@@ -6,28 +6,15 @@
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/navinpeiris/ex_unit_notifier.svg)](https://beta.hexfaktor.org/github/navinpeiris/ex_unit_notifier)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
-
 ![screenshot](http://i.imgur.com/xywj5C1.png)
 
-Show desktop notifications for ExUnit runs. Works incredibly well together with automatic test runners such as [mix-test.watch](https://github.com/lpil/mix-test.watch). (Yes, TDD is awesome!)
+Show desktop notifications for ExUnit runs. Works very well with automatic test runners such as [mix-test.watch](https://github.com/lpil/mix-test.watch). (Yes, TDD is awesome!)
 
-Currently only notifications through OS X Notification Center is supported, but support for Growl, Linux and Windows will be coming soon. Pull requests will be highly appreciated!
-
-
-## Prerequisites
-
-On OS X, this plugin depends on [terminal-notifier](https://github.com/julienXX/terminal-notifier) being installed and available through the current users' `PATH`
-
-You can install terminal notifier using **either** of the following:
-
-```sh-session
-$ brew install terminal-notifier
-$ gem install terminal-notifier
-```
+Currently notifications on OS X and Linux are supported.
 
 ## Installation
 
-First, add ExUnitNotifier to your `mix.exs` dependencies:
+First, add `ExUnitNotifier` to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
@@ -41,6 +28,10 @@ Then, update your dependencies:
 $ mix deps.get
 ```
 
+### For OS X
+
+Ensure [terminal-notifier](https://github.com/julienXX/terminal-notifier) is installed and available through the users `PATH`.
+
 ## Usage
 
 Add `ExUnitNotifier` to your `ExUnit` configuration in `test/test_helper.exs` file.
@@ -51,6 +42,22 @@ ExUnit.start
 ```
 
 Now run `mix test` and you'll see notifications popping up :)
+
+## Notification Types
+
+Notifications will be sent from the first available notifier that is deemed available in the order specified below:
+
+* terminal-notifier
+* notify-send
+* Terminal Title if non of the above match
+
+To force a specific type of notifier to be used, specify the notifier using the following configuration:
+
+```elixir
+config :ex_unit_notifier, notifier: ExUnitNotifier.Notifiers.TerminalNotifier
+```
+
+You can use one of the available notifiers found in [lib/ex_unit_notifier/notifiers](lib/ex_unit_notifier/notifiers), or you can write your own.
 
 ### License
 
