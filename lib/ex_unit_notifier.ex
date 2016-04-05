@@ -15,6 +15,7 @@ defmodule ExUnitNotifier do
 
   @notifiers [
     ExUnitNotifier.Notifiers.TerminalNotifier,
+    ExUnitNotifier.Notifiers.NotifySend,
     ExUnitNotifier.Notifiers.TerminalTitle
   ]
 
