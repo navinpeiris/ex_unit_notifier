@@ -2,11 +2,16 @@ defmodule ExUnitNotifier.MessageFormatter do
   @moduledoc false
 
   def format(counter, run_us, load_us) do
-    message = "#{counter.tests} tests, #{counter.failures} failures"
-    if counter.skipped > 0 do
-      message = "#{message}, #{counter.skipped} skipped"
+    "#{status_message(counter)} in #{format_time(run_us, load_us)} seconds"
+  end
+
+  defp status_message(%{tests: tests, failures: failures, skipped: skipped}) do
+    message = "#{tests} tests, #{failures} failures"
+    if skipped > 0 do
+      "#{message}, #{skipped} skipped"
+    else
+      message
     end
-    "#{message} in #{format_time(run_us, load_us)} seconds"
   end
 
   defp format_time(run_us, load_us), do: format_us(normalize_us(run_us) + normalize_us(load_us))
