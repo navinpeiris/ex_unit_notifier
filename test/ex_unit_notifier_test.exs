@@ -95,6 +95,8 @@ defmodule ExUnitNotifierTest do
   end
 
   defp run_sample_test do
+    ExUnit.Server.cases_loaded
+
     ExUnit.configure formatters: [ExUnitNotifier], exclude: [pending: true]
     ExUnit.run
   end
