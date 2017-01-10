@@ -2,13 +2,13 @@ defmodule ExUnitNotifier.Notifiers.NotifySend do
   @moduledoc false
 
   def notify(status, message) do
-    System.cmd executable, ["--app-name=ExUnit",
-                            "--icon=#{get_icon(status)}",
-                            "ExUnit",
-                            message]
+    System.cmd executable(), ["--app-name=ExUnit",
+                              "--icon=#{get_icon(status)}",
+                              "ExUnit",
+                              message]
   end
 
-  def available?, do: executable != nil
+  def available?, do: executable() != nil
 
   defp executable, do: System.find_executable "notify-send"
 

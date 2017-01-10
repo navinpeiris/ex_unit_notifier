@@ -8,12 +8,12 @@ defmodule ExUnitNotifier.Mixfile do
      description: "Show status notifications for ExUnit test runs",
      source_url: "https://github.com/navinpeiris/ex_unit_notifier",
      homepage_url: "https://github.com/navinpeiris/ex_unit_notifier",
-     package: package,
+     package: package(),
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
+     deps: deps(),
      docs: [extras: ["README.md"]]]
   end
 

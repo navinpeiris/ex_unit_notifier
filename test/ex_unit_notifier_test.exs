@@ -4,7 +4,7 @@ defmodule ExUnitNotifierTest do
 
   defmodule TestNotifier do
     def notify(status, message) do
-      send test_pid, {status, message}
+      send test_pid(), {status, message}
     end
 
     defp test_pid, do: Application.get_env(:ex_unit_notifier, :test_pid)
@@ -12,7 +12,7 @@ defmodule ExUnitNotifierTest do
 
   setup do
     Application.put_env(:ex_unit_notifier, :notifier, TestNotifier)
-    Application.put_env(:ex_unit_notifier, :test_pid, self)
+    Application.put_env(:ex_unit_notifier, :test_pid, self())
 
     on_exit fn ->
       Application.delete_env(:ex_unit_notifier, :notifier)
@@ -34,7 +34,7 @@ defmodule ExUnitNotifierTest do
       end
     end
 
-    run_sample_test
+    run_sample_test()
 
     assert_receive {:ok, message}
     assert message =~ ~r(2 tests, 0 failures in \d+\.\d{2} seconds)
@@ -53,7 +53,7 @@ defmodule ExUnitNotifierTest do
       end
     end
 
-    run_sample_test
+    run_sample_test()
 
     assert_receive {:error, message}
     assert message =~ ~r(2 tests, 1 failures in \d+\.\d{2} seconds)
@@ -68,7 +68,7 @@ defmodule ExUnitNotifierTest do
       end
     end
 
-    run_sample_test
+    run_sample_test()
 
     assert_receive {:error, message}
     assert message =~ ~r(1 tests, 1 failures in \d+\.\d{2} seconds)
@@ -88,7 +88,7 @@ defmodule ExUnitNotifierTest do
       end
     end
 
-    run_sample_test
+    run_sample_test()
 
     assert_receive {:ok, message}
     assert message =~ ~r(2 tests, 0 failures, 1 skipped in \d+\.\d{2} seconds)

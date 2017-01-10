@@ -2,13 +2,13 @@ defmodule ExUnitNotifier.Notifiers.TerminalNotifier do
   @moduledoc false
 
   def notify(status, message) do
-    System.cmd executable, ["-group", "ex-unit-notifier",
-                            "-title", "ExUnit",
-                            "-message", message,
-                            "-appIcon", get_icon(status)]
+    System.cmd executable(), ["-group", "ex-unit-notifier",
+                              "-title", "ExUnit",
+                              "-message", message,
+                              "-appIcon", get_icon(status)]
   end
 
-  def available?, do: executable != nil
+  def available?, do: executable() != nil
 
   defp executable, do: System.find_executable "terminal-notifier"
 
