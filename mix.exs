@@ -3,7 +3,7 @@ defmodule ExUnitNotifier.Mixfile do
 
   def project do
     [app: :ex_unit_notifier,
-     version: "0.1.2",
+     version: "0.1.3",
      name: "ExUnitNotifier",
      description: "Show status notifications for ExUnit test runs",
      source_url: "https://github.com/navinpeiris/ex_unit_notifier",
