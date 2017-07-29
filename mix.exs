@@ -9,7 +9,7 @@ defmodule ExUnitNotifier.Mixfile do
      source_url: "https://github.com/navinpeiris/ex_unit_notifier",
      homepage_url: "https://github.com/navinpeiris/ex_unit_notifier",
      package: package(),
-     elixir: "~> 1.2",
+     elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
