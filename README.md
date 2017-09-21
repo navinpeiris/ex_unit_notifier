@@ -32,6 +32,14 @@ $ mix deps.get
 
 Ensure [terminal-notifier](https://github.com/julienXX/terminal-notifier) is installed and available through the users `PATH`.
 
+### For Linux
+
+Install `notify-send`:
+
+```bash
+sudo apt install libnotify-bin
+```
+
 ## Usage
 
 Add `ExUnitNotifier` to your `ExUnit` configuration in `test/test_helper.exs` file.
