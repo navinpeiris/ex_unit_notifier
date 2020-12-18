@@ -10,7 +10,9 @@ defmodule ExUnitNotifier.Notifiers.TerminalNotifier do
       "-message",
       message,
       "-appIcon",
-      get_icon(status)
+      get_icon(status),
+      "-contentImage",
+      content_image(status)
     ])
   end
 
@@ -19,5 +21,8 @@ defmodule ExUnitNotifier.Notifiers.TerminalNotifier do
   defp executable, do: System.find_executable("terminal-notifier")
 
   defp get_icon(status),
-    do: Application.app_dir(:ex_unit_notifier, "priv/icons/#{status |> Atom.to_string()}.icns")
+    do: Application.app_dir(:ex_unit_notifier, "priv/icons/#{status}.icns")
+
+  defp content_image(status),
+    do: Application.app_dir(:ex_unit_notifier, "priv/icons/#{status}.png")
 end
