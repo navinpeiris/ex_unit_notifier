@@ -1,9 +1,8 @@
 # ExUnit Notifier
 
-[![Build Status](https://travis-ci.org/navinpeiris/ex_unit_notifier.svg?branch=master)](https://travis-ci.org/navinpeiris/ex_unit_notifier)
+[![Build Status](https://github.com/navinpeiris/ex_unit_notifier/workflows/CI/badge.svg)](https://github.com/navinpeiris/ex_unit_notifier/actions?query=workflow%3ACI)
 [![Hex version](https://img.shields.io/hexpm/v/ex_unit_notifier.svg "Hex version")](https://hex.pm/packages/ex_unit_notifier)
 [![Hex downloads](https://img.shields.io/hexpm/dt/ex_unit_notifier.svg "Hex downloads")](https://hex.pm/packages/ex_unit_notifier)
-[![Deps Status](https://beta.hexfaktor.org/badge/all/github/navinpeiris/ex_unit_notifier.svg)](https://beta.hexfaktor.org/github/navinpeiris/ex_unit_notifier)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 ![screenshot](http://i.imgur.com/xywj5C1.png)
@@ -55,9 +54,9 @@ Now run `mix test` and you'll see notifications popping up :)
 
 Notifications will be sent from the first available notifier that is deemed available in the order specified below:
 
-* terminal-notifier
-* notify-send
-* Terminal Title if non of the above match
+- terminal-notifier
+- notify-send
+- Terminal Title if non of the above match
 
 To force a specific type of notifier to be used, specify the notifier using the following configuration:
 
@@ -90,4 +89,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
