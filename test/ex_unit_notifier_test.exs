@@ -4,7 +4,7 @@ defmodule ExUnitNotifierTest do
 
   defmodule TestNotifier do
     def notify(status, message) do
-      send test_pid(), {status, message}
+      send(test_pid(), {status, message})
     end
 
     defp test_pid, do: Application.get_env(:ex_unit_notifier, :test_pid)
@@ -14,9 +14,9 @@ defmodule ExUnitNotifierTest do
     Application.put_env(:ex_unit_notifier, :notifier, TestNotifier)
     Application.put_env(:ex_unit_notifier, :test_pid, self())
 
-    on_exit fn ->
+    on_exit(fn ->
       Application.delete_env(:ex_unit_notifier, :notifier)
-    end
+    end)
 
     :ok
   end
@@ -95,9 +95,9 @@ defmodule ExUnitNotifierTest do
   end
 
   defp run_sample_test do
-    ExUnit.Server.cases_loaded
+    ExUnit.Server.cases_loaded()
 
-    ExUnit.configure formatters: [ExUnitNotifier], exclude: [pending: true]
-    ExUnit.run
+    ExUnit.configure(formatters: [ExUnitNotifier], exclude: [pending: true])
+    ExUnit.run()
   end
 end

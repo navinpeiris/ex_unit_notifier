@@ -1,7 +1,7 @@
 defmodule ExUnitNotifier.Counter do
   @moduledoc false
 
-  defstruct [tests: 0, failures: 0, skipped: 0, invalid: 0]
+  defstruct tests: 0, failures: 0, skipped: 0, invalid: 0
 
   def add_test(counter), do: %{counter | tests: counter.tests + 1}
   def add_failed(counter), do: %{counter | failures: counter.failures + 1}

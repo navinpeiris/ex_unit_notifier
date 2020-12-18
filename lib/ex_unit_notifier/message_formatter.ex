@@ -7,6 +7,7 @@ defmodule ExUnitNotifier.MessageFormatter do
 
   defp status_message(%{tests: tests, failures: failures, skipped: skipped}) do
     message = "#{tests} tests, #{failures} failures"
+
     if skipped > 0 do
       "#{message}, #{skipped} skipped"
     else
@@ -20,8 +21,9 @@ defmodule ExUnitNotifier.MessageFormatter do
   defp normalize_us(us), do: div(us, 10_000)
 
   defp format_us(us) when us < 10, do: "0.0#{us}"
+
   defp format_us(us) do
-    us = div us, 10
+    us = div(us, 10)
     "#{div(us, 10)}.#{rem(us, 10)}"
   end
 end
