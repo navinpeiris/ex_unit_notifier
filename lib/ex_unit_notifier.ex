@@ -2,7 +2,7 @@ defmodule ExUnitNotifier do
   @moduledoc """
   Shows notifications for ExUnit test runs
 
-  To enablee notifications, add `ExUnitNotifier` as a formatter in your `test_helper.exs`:
+  To enable notifications, add `ExUnitNotifier` as a formatter in your `test_helper.exs`:
 
       ExUnit.configure formatters: [ExUnit.CLIFormatter, ExUnitNotifier]
 
@@ -27,7 +27,10 @@ defmodule ExUnitNotifier do
   def handle_cast({:test_finished, %ExUnit.Test{state: {:failed, _}}}, counter),
     do: {:noreply, counter |> Counter.add_test() |> Counter.add_failed()}
 
-  def handle_cast({:test_finished, %ExUnit.Test{state: {:skip, _}}}, counter),
+  def handle_cast({:test_finished, %ExUnit.Test{state: {:excluded, _}}}, counter),
+    do: {:noreply, counter |> Counter.add_test() |> Counter.add_excluded()}
+
+  def handle_cast({:test_finished, %ExUnit.Test{state: {:skipped, _}}}, counter),
     do: {:noreply, counter |> Counter.add_test() |> Counter.add_skipped()}
 
   def handle_cast({:test_finished, %ExUnit.Test{state: {:invalid, _}}}, counter),

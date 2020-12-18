@@ -86,16 +86,26 @@ defmodule ExUnitNotifierTest do
       test "pending test" do
         assert 1 + 1 == 3
       end
+
+      @tag :pending
+      test "pending test 2" do
+        assert 1 + 1 == 3
+      end
+
+      @tag :skip
+      test "skipped test" do
+        assert 1 + 1 == 3
+      end
     end
 
     run_sample_test()
 
     assert_receive {:ok, message}
-    assert message =~ ~r(2 tests, 0 failures, 1 skipped in \d+\.\d{2} seconds)
+    assert message =~ ~r(4 tests, 0 failures, 2 excluded, 1 skipped in \d+\.\d{2} seconds)
   end
 
   defp run_sample_test do
-    ExUnit.Server.cases_loaded()
+    ExUnit.Server.modules_loaded()
 
     ExUnit.configure(formatters: [ExUnitNotifier], exclude: [pending: true])
     ExUnit.run()
