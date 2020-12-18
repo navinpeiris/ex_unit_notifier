@@ -25,7 +25,7 @@ defmodule ExUnitNotifier.Mixfile do
     [{:earmark, "~> 1.0", only: :dev},
      {:ex_doc, "~> 0.14", only: :dev},
 
-     {:mix_test_watch, "~> 0.2", only: :dev}]
+     {:mix_test_watch, "~> 1.0", only: :dev}]
   end
 
   defp package do
