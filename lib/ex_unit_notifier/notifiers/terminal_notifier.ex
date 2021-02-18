@@ -1,7 +1,7 @@
 defmodule ExUnitNotifier.Notifiers.TerminalNotifier do
   @moduledoc false
 
-  def notify(status, message) do
+  def notify(status, message, _opts) do
     System.cmd(executable(), [
       "-group",
       "ex-unit-notifier",
