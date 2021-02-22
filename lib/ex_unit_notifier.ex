@@ -37,7 +37,12 @@ defmodule ExUnitNotifier do
     do: {:noreply, counter |> Counter.add_test() |> Counter.add_invalid()}
 
   def handle_cast({:suite_finished, run_us, load_us}, counter) do
-    notifier().notify(status(counter), MessageFormatter.format(counter, run_us, load_us))
+    apply(notifier(), :notify, [
+      status(counter),
+      MessageFormatter.format(counter, run_us, load_us),
+      opts()
+    ])
+
     {:noreply, counter}
   end
 
@@ -47,6 +52,11 @@ defmodule ExUnitNotifier do
     do: :error
 
   defp status(_), do: :ok
+
+  defp opts,
+    do: %{
+      clear_history: Application.get_env(:ex_unit_notifier, :clear_history, false)
+    }
 
   defp notifier, do: Application.get_env(:ex_unit_notifier, :notifier, first_available_notifier())
 

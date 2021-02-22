@@ -3,7 +3,7 @@ defmodule ExUnitNotifierTest do
   doctest ExUnitNotifier
 
   defmodule TestNotifier do
-    def notify(status, message) do
+    def notify(status, message, _opts) do
       send(test_pid(), {status, message})
     end
 

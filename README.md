@@ -66,6 +66,14 @@ config :ex_unit_notifier, notifier: ExUnitNotifier.Notifiers.TerminalNotifier
 
 You can use one of the available notifiers found in [lib/ex_unit_notifier/notifiers](lib/ex_unit_notifier/notifiers), or you can write your own.
 
+## Notification Options
+
+For `notify-send` users, it is possible to clear the notifications from notifications center history using the following configuration, defaults to `false`:
+
+```elixir
+config :ex_unit_notifier, clear_history: true
+```
+
 ### License
 
 The MIT License
