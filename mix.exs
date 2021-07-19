@@ -2,7 +2,7 @@ defmodule ExUnitNotifier.Mixfile do
   use Mix.Project
 
   @source_url "https://github.com/navinpeiris/ex_unit_notifier"
-  @version "1.0.0"
+  @version "1.1.0"
 
   def project do
     [

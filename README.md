@@ -20,7 +20,7 @@ First, add `ExUnitNotifier` to your `mix.exs` dependencies:
 ```elixir
 def deps do
   [
-    {:ex_unit_notifier, "~> 1.0", only: :test}
+    {:ex_unit_notifier, "~> 1.1", only: :test}
   ]
 end
 ```
