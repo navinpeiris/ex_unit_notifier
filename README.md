@@ -2,8 +2,10 @@
 
 [![Build Status](https://github.com/navinpeiris/ex_unit_notifier/workflows/CI/badge.svg)](https://github.com/navinpeiris/ex_unit_notifier/actions?query=workflow%3ACI)
 [![Hex version](https://img.shields.io/hexpm/v/ex_unit_notifier.svg "Hex version")](https://hex.pm/packages/ex_unit_notifier)
+[![Hex docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/ex_unit_notifier/)
 [![Hex downloads](https://img.shields.io/hexpm/dt/ex_unit_notifier.svg "Hex downloads")](https://hex.pm/packages/ex_unit_notifier)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Last Updated](https://img.shields.io/github/last-commit/navinpeiris/ex_unit_notifier.svg)](https://github.com/navinpeiris/ex_unit_notifier/commits/master)
 
 ![screenshot](http://i.imgur.com/xywj5C1.png)
 
@@ -17,26 +19,34 @@ First, add `ExUnitNotifier` to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:ex_unit_notifier, "~> 1.1", only: :test}]
+  [
+    {:ex_unit_notifier, "~> 1.1", only: :test}
+  ]
 end
 ```
 
 Then, update your dependencies:
 
-```sh-session
+```bash
 $ mix deps.get
 ```
 
-### For OS X
+### For macOS
 
-Ensure [terminal-notifier](https://github.com/julienXX/terminal-notifier) is installed and available through the users `PATH`.
+Follow [installation instruction](https://github.com/julienXX/terminal-notifier) of `terminal-notifier` if you need to install a particular version.
 
-### For Linux
+Otherwise, install current version via Homebrew:
+
+```bash
+$ brew install terminal-notifier
+```
+
+### For GNU/Linux
 
 Install `notify-send`:
 
 ```bash
-sudo apt install libnotify-bin
+$ sudo apt install libnotify-bin
 ```
 
 ## Usage
@@ -74,26 +84,8 @@ For `notify-send` users, it is possible to clear the notifications from notifica
 config :ex_unit_notifier, clear_history: true
 ```
 
-### License
+### Copyright and License
 
-The MIT License
+Copyright (c) 2016 Navin Peiris
 
-Copyright (c) 2016-present Navin Peiris
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Source code is released under [the MIT license](./LICENSE.md).

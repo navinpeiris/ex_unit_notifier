@@ -1,21 +1,21 @@
 defmodule ExUnitNotifier.Mixfile do
   use Mix.Project
 
+  @source_url "https://github.com/navinpeiris/ex_unit_notifier"
+  @version "1.1.0"
+
   def project do
     [
       app: :ex_unit_notifier,
-      version: "1.1.0",
+      version: @version,
       name: "ExUnitNotifier",
-      description: "Show status notifications for ExUnit test runs",
-      source_url: "https://github.com/navinpeiris/ex_unit_notifier",
-      homepage_url: "https://github.com/navinpeiris/ex_unit_notifier",
-      package: package(),
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env()),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
+      package: package(),
       deps: deps(),
-      docs: [extras: ["README.md"]]
+      docs: docs()
     ]
   end
 
@@ -25,18 +25,28 @@ defmodule ExUnitNotifier.Mixfile do
 
   defp deps do
     [
-      {:earmark, "~> 1.0", only: :dev},
-      {:ex_doc, "~> 0.14", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:mix_test_watch, "~> 1.0", only: :dev}
+    ]
+  end
+
+  defp docs do
+    [
+      extras: [{:"LICENSE.md", [title: "License"]}, "README.md"],
+      main: "readme",
+      source_url: @source_url,
+      formatters: ["html"],
+      api_reference: false
     ]
   end
 
   defp package do
     [
+      description: "Show status notifications for ExUnit test runs",
       files: ["lib", "priv", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Navin Peiris"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/navinpeiris/ex_unit_notifier"}
+      links: %{"GitHub" => @source_url}
     ]
   end
 
