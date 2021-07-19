@@ -36,7 +36,19 @@ defmodule ExUnitNotifier do
   def handle_cast({:test_finished, %ExUnit.Test{state: {:invalid, _}}}, counter),
     do: {:noreply, counter |> Counter.add_test() |> Counter.add_invalid()}
 
+  # Elixir version < 1.12.0
   def handle_cast({:suite_finished, run_us, load_us}, counter) do
+    apply(notifier(), :notify, [
+      status(counter),
+      MessageFormatter.format(counter, run_us, load_us),
+      opts()
+    ])
+
+    {:noreply, counter}
+  end
+
+  # Elixir version >= 1.12.0, see https://hexdocs.pm/ex_unit/1.12.0/ExUnit.Formatter.html
+  def handle_cast({:suite_finished, %{run: run_us, async: _async_us, load: load_us}}, counter) do
     apply(notifier(), :notify, [
       status(counter),
       MessageFormatter.format(counter, run_us, load_us),
