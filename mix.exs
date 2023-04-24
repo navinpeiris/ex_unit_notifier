@@ -1,4 +1,4 @@
-defmodule ExUnitNotifier.Mixfile do
+defmodule ExUnitNotifier.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/navinpeiris/ex_unit_notifier"
@@ -9,7 +9,7 @@ defmodule ExUnitNotifier.Mixfile do
       app: :ex_unit_notifier,
       version: @version,
       name: "ExUnitNotifier",
-      elixir: "~> 1.4",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,

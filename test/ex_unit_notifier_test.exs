@@ -105,7 +105,7 @@ defmodule ExUnitNotifierTest do
   end
 
   defp run_sample_test do
-    ExUnit.Server.modules_loaded()
+    ExUnit.Server.modules_loaded(false)
 
     ExUnit.configure(formatters: [ExUnitNotifier], exclude: [pending: true])
     ExUnit.run()
