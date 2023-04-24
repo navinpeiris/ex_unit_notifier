@@ -64,9 +64,10 @@ Now run `mix test` and you'll see notifications popping up :)
 
 Notifications will be sent from the first available notifier that is deemed available in the order specified below:
 
-- terminal-notifier
-- notify-send
-- Terminal Title if non of the above match
+- terminal-notifier (ExUnitNotifier.Notifiers.TerminalNotifier)
+- notify-send (ExUnitNotifier.Notifiers.NotifySend)
+- tmux (ExUnitNotifier.Notifiers.TmuxNotifier)
+- Terminal Title if non of the above match (ExUnitNotifier.Notifiers.TerminalTitle)
 
 To force a specific type of notifier to be used, specify the notifier using the following configuration:
 
