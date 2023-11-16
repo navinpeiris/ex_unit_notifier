@@ -26,7 +26,8 @@ defmodule ExUnitNotifier.MixProject do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:mix_test_watch, "~> 1.0", only: :dev}
+      {:mix_test_watch, "~> 1.0", only: :dev},
+      {:ding, "~> 0.0" },
     ]
   end
 
